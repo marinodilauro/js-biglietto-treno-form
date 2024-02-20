@@ -1,5 +1,4 @@
-// Creo due variabili per l'età dell'utente e i km che deve percorrere
-// Assegno a queste due variabili dei valori tramite input utente
+// Create three variables for user name, age and travel distance and assign values from inputs fields
 
 const inputNameElement = document.getElementById("inputName");
 let userName = inputNameElement.value;
@@ -10,27 +9,74 @@ let userAge = inputAgeElement.value;
 const inputDistanceElement = document.getElementById("inputDistance");
 let travelDistance = inputDistanceElement.value;
 
-// Creo una costante per il prezzo al km del biglietto (0.21€)
+
+// Create constant for ticket base price
 
 const ticketBasePrice = 0.21;
 
-// Creo una varaibile e le assegno il prezzo del biglietto dell'utente (sarà 0.21 moltiplicato il valore della variabile "km da percorrere")
 
-let ticketFinalPrice = ticketBasePrice * travelDistance;
-
-// Creo due variabili per lo sconto ai minorenni e per lo sconto agli over 65 anni
+// Create two variables for minors and seniors discount
 
 const minorDiscount = 0.2;
 const seniorDiscount = 0.4;
 
-// Stampo il prezzo del biglietto al click del bottone "Scopri il prezzo"
+
+// Create variables for ticket details HTML reference on screen
+
+let nameOutput = document.querySelector(".mc_user_name");
+
+let offerOutput = document.querySelector(".mc_offer_type");
+
+let carriageOutput = document.querySelector(".mc_carriage_number");
+
+let cpCodeOutput = document.querySelector(".mc_cp_code_number");
+
+let priceOutput = document.querySelector("p.mc_ticket_price");
+
+
+// Show ticket details card
 
 const submitButtonElement = document.getElementById("submitBtn");
 
-submitButtonElement.addEventListener("click", function () {
+submitButtonElement.addEventListener("click", showTicketDetails);
 
-  // Assegno alle variabili il valore degli inputs dell'utente
+// Reset input field on "Annulla" button click
 
+const cancelButtonElement = document.getElementById("cancelBtn");
+
+cancelButtonElement.addEventListener("click", function () {
+
+  // Reset input fields value
+  resetInputFields()
+
+});
+
+
+// Reset input field and re-run app on "Ripeti" button click
+
+const repeatButtonElement = document.getElementById("repeatBtn");
+
+repeatButtonElement.addEventListener("click", function () {
+
+  // Hide ticket card on screen
+  hideTicketCard();
+
+  // Reset input fields value
+  resetInputFields();
+
+  // Cancel all ticket values from the screen
+  cancelAllTicketValues();
+
+});
+
+
+// #region ||||| FUNCTIONS |||||
+
+// Function to show ticket details card on screen
+
+function showTicketDetails() {
+
+  // Assign input fields value to variables
   userName = inputNameElement.value;
   console.log(userName);
 
@@ -40,16 +86,13 @@ submitButtonElement.addEventListener("click", function () {
   travelDistance = inputDistanceElement.value;
   console.log(travelDistance);
 
-  // Creo una varaibile e le assegno il prezzo del biglietto dell'utente (sarà 0.21 moltiplicato il valore della variabile "km da percorrere")
-
+  // Create a variable and assing ticket price (0.21 times travelDistance value)
   let ticketFinalPrice = ticketBasePrice * travelDistance;
 
-  // Creo una varaibile per il tipo di offerta del biglietto
-
+  // Create a variable for ticket offer type
   let offerType = "Biglietto tariffa standard"
 
-  // Verifico l'età dell'utente per applicare lo sconto
-
+  // Verify user age to apply discount
   if (userAge == "1") {
     ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorDiscount);
     offerType = "Biglietto con sconto minorenni"
@@ -58,78 +101,47 @@ submitButtonElement.addEventListener("click", function () {
     offerType = "Biglietto con sconto over 65"
   }
 
-  // Mostro la card di output nella pagina
+  // Show ticket card on screen
+  showTicketCard();
+
+  // Print user name on screen
+  nameOutput.innerHTML = userName.toLocaleString("it-IT");
+
+  // Print carriage number on screen
+  carriageOutput.innerHTML = (Math.floor(Math.random() * 21) + 1);
+
+  // Print ticket offer type on screen
+  offerOutput.innerHTML = offerType;
+
+  // Print CP code on screen
+  cpCodeOutput.innerHTML = (Math.floor(Math.random() * 10001) + 1);
+
+  // Print ticket price on screen
+  priceOutput.innerHTML = `${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
+
+}
+
+// Function to show ticket card on screen
+
+function showTicketCard() {
 
   let ticketCardElement = document.querySelector(".mc_ticket_output");
 
   ticketCardElement.classList.remove("d-none");
+}
 
-  // Stampo il nome dell'utente nella pagina
+// Function to hide ticket card on screen
 
-  let nameOutput = document.querySelector(".mc_user_name");
-
-  nameOutput.innerHTML = userName.toLocaleString("it-IT");
-
-  // Stampo il numero della carrozza nella pagina
-
-  let carriageOutput = document.querySelector(".mc_carriage_number");
-
-  carriageOutput.innerHTML = (Math.floor(Math.random() * 21) + 1);
-
-  // Stampo il tipo di offerta del biglietto nella pagina
-
-  let offerOutput = document.querySelector(".mc_offer_type");
-
-  offerOutput.innerHTML = offerType.toLocaleString("it-IT");
-
-  // Stampo codice CP nella pagina
-
-  let cpCodeOutput = document.querySelector(".mc_cp_code_number");
-
-  cpCodeOutput.innerHTML = (Math.floor(Math.random() * 10001) + 1);
-
-  // Stampo il prezzo del biglietto nella pagina
-
-  let priceOutput = document.querySelector("p.mc_ticket_price");
-
-  priceOutput.innerHTML = `${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
-
-});
-
-
-// Resetto i campi e riavvio l'app al click del bottone "Ripeti"
-
-const cancelButtonElement = document.getElementById("cancelBtn");
-
-cancelButtonElement.addEventListener("click", function () {
-
-  // Resetto il valore degli inputs dell'utente
-
-  inputAgeElement.value = "";
-  console.log(userName);
-
-  inputNameElement.value = "";
-  console.log(userAge);
-
-  inputDistanceElement.value = "";
-  console.log(travelDistance);
-
-});
-
-
-// Resetto i campi e riavvio l'app al click del bottone "Ripeti"
-
-const repeatButtonElement = document.getElementById("repeatBtn");
-
-repeatButtonElement.addEventListener("click", function () {
-
-  // Nascondo la card di output nella pagina
+function hideTicketCard() {
 
   let ticketCardElement = document.querySelector(".mc_ticket_output");
 
   ticketCardElement.classList.add("d-none");
+}
 
-  // Resetto il valore degli inputs dell'utente
+// Function to reset input fields value
+
+function resetInputFields() {
 
   inputAgeElement.value = "";
   console.log(userName);
@@ -139,13 +151,13 @@ repeatButtonElement.addEventListener("click", function () {
 
   inputDistanceElement.value = "";
   console.log(travelDistance);
+}
 
-  // Resetto il valore del prezzo del biglietto
+// Function to cancel all ticket values from the screen
+
+function cancelAllTicketValues() {
 
   let ticketFinalPrice = null;
-
-  // Cancello tutti i valori dalla pagina
-
 
   let nameOutput = document.querySelector(".mc_user_name");
 
@@ -163,8 +175,9 @@ repeatButtonElement.addEventListener("click", function () {
 
   cpCodeOutput.innerHTML = null;
 
-  let priceOutput = document.getElementById("price");
+  let priceOutput = document.querySelector(".mc_ticket_price");
 
   priceOutput.innerHTML = null;
+}
 
-});
+// #endregion ||||| FUNCTIONS |||||
