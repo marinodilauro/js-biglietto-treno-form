@@ -2,10 +2,23 @@
 // Assegno a queste due variabili dei valori tramite input utente
 
 const inputNameElement = document.getElementById("inputName");
-console.log(inputNameElement.value);
+const userName = inputNameElement.value;
+console.log(userName);
 
 const inputAgeElement = document.getElementById("inputAge");
-console.log(inputAgeElement.value);
+const userAge = inputAgeElement.value;
+console.log(userAge);
 
 const inputDistanceElement = document.getElementById("inputDistance");
-console.log(inputDistanceElement.value);
+const travelDistance = inputDistanceElement.value;
+console.log(travelDistance);
+
+// Creo una costante per il prezzo al km del biglietto (0.21€)
+
+const ticketBasePrice = 0.21;
+console.log(ticketBasePrice);
+
+// Creo una varaibile e le assegno il prezzo del biglietto dell'utente (sarà 0.21 moltiplicato il valore della variabile "km da percorrere")
+
+let ticketFinalPrice = ticketBasePrice * travelDistance;
+console.log(ticketFinalPrice);
