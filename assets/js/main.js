@@ -58,6 +58,12 @@ submitButtonElement.addEventListener("click", function () {
     offerType = "Biglietto con sconto over 65"
   }
 
+  // Mostro la card di output nella pagina
+
+  let ticketCardElement = document.querySelector(".mc_ticket_output");
+
+  ticketCardElement.classList.remove("d-none");
+
   // Stampo il nome dell'utente nella pagina
 
   let nameOutput = document.querySelector(".mc_user_name");
@@ -117,6 +123,12 @@ const repeatButtonElement = document.getElementById("repeatBtn");
 
 repeatButtonElement.addEventListener("click", function () {
 
+  // Nascondo la card di output nella pagina
+
+  let ticketCardElement = document.querySelector(".mc_ticket_output");
+
+  ticketCardElement.classList.add("d-none");
+
   // Resetto il valore degli inputs dell'utente
 
   inputAgeElement.value = "";
@@ -132,9 +144,27 @@ repeatButtonElement.addEventListener("click", function () {
 
   let ticketFinalPrice = null;
 
-  // Cancello il prezzo del biglieto dalla pagina
+  // Cancello tutti i valori dalla pagina
+
+
+  let nameOutput = document.querySelector(".mc_user_name");
+
+  nameOutput.innerHTML = null;
+
+  let carriageOutput = document.querySelector(".mc_carriage_number");
+
+  carriageOutput.innerHTML = null;
+
+  let offerOutput = document.querySelector(".mc_offer_type");
+
+  offerOutput.innerHTML = null;
+
+  let cpCodeOutput = document.querySelector(".mc_cp_code_number");
+
+  cpCodeOutput.innerHTML = null;
 
   let priceOutput = document.getElementById("price");
 
   priceOutput.innerHTML = null;
+
 });
