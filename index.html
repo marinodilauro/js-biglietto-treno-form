@@ -25,13 +25,15 @@
 <body>
 
   <!-- Header -->
-  <header id="header" class="d-flex justify-content-center align-items-center">
+  <!-- <header id="header" class="d-flex justify-content-center align-items-center">
     <h1>Ticket price calculator</h1>
-  </header>
+  </header> -->
 
   <!-- App -->
 
   <div class="mc_app border border-black rounded m-auto my-4 p-5">
+
+
     <div class="container">
 
       <div class="row gap-3">
@@ -40,9 +42,11 @@
 
           <!-- User inputs -->
 
+          <h1 class="mb-4">Ticket price calculator</h1>
+
           <div class="mc_user_inputs card">
 
-            <h3 class="card-header">Dati passeggero e distanza viaggio</h3>
+            <h2 class="card-header fs-4 p-3">Dati passeggero e distanza viaggio</h2>
 
             <div class="card-body d-flex my-4">
 
@@ -54,6 +58,7 @@
               <div class="col-4">
                 <label for="inputAgeRange" class="form-label">Fascia d'età del passeggero</label>
                 <select class="form-select w-75" aria-label="ageRange" id="inputAgeRange">
+                  <option disabled selected value> -- Selezionare fascia d'et&agrave; -- </option>
                   <option value="1">Minorenne</option>
                   <option value="2">Maggiorenne (tra 18 e 64 anni)</option>
                   <option value="3">Anziano (oltre i 64 anni)</option>
@@ -68,15 +73,61 @@
 
             </div>
 
+            <div class="mc_ticket_output card border-0 border-top rounded-0 d-none">
+
+              <h2 class="card-header fs-4 p-3">Il tuo biglietto</h2>
+
+              <div class="card-body">
+
+                <div class="container d-flex align-items-center gap-5">
+
+                  <!-- User data -->
+
+                  <div class="mc_user_data border-0 border-end p-4">
+
+                    <h6>NOME DEL PASSEGGERO</h6>
+                    <p class="mc_user_name fs-6"></p>
+
+                  </div>
+
+                  <!-- Ticket data -->
+
+                  <div class="mc_ticket_data d-flex gap-5">
+
+                    <div class="mc_ticket_offer">
+                      <h6>OFFERTA BIGLIETTO</h6>
+                      <p class="mc_offer_type fs-6"></p>
+                    </div>
+
+                    <div class="mc_carriage">
+                      <h6>CARROZZA</h6>
+                      <p class="mc_carriage_number fs-6"></p>
+                    </div>
+
+                    <div class="mc_cp_code">
+                      <h6>CODICE CP</h6>
+                      <p class="mc_cp_code_number fs-6"></p>
+                    </div>
+
+                    <div class="mc_ticket">
+                      <h6>COSTO BIGLIETTO</h6>
+                      <p class="mc_ticket_price fs-6"></p>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
             <!-- Buttons -->
 
-            <div class="mc_btn_group card-footer d-flex justify-content-center gap-5">
+            <div class="mc_btn_group card-footer d-flex justify-content-start gap-3">
 
               <button type="button" class="btn mc_btn_bg" id="submitBtn">Scopri il prezzo</button>
 
-              <button type="button" class="btn mc_btn_bg" id="cancelBtn">Annulla</button>
-
-              <button type="button" class="btn mc_btn_bg" id="repeatBtn">Ripeti</button>
+              <button type="button" class="btn btn-secondary" id="repeatBtn" disabled>Ripeti</button>
 
             </div>
 
@@ -87,53 +138,7 @@
 
           <!-- Ticket output -->
 
-          <div class="mc_ticket_output card d-none">
 
-            <h3 class="card-header">Il tuo biglietto</h3>
-
-            <div class="card-body">
-
-              <div class="container d-flex align-items-center gap-5">
-
-                <!-- User data -->
-
-                <div class="mc_user_data border-0 border-end p-3">
-
-                  <h4>Nome del passeggero</h4>
-                  <p class="mc_user_name"></p>
-
-                </div>
-
-                <!-- Ticket data -->
-
-                <div class="mc_ticket_data d-flex gap-5">
-
-                  <div class="mc_ticket_offer">
-                    <h5>Offerta biglietto</h5>
-                    <p class="mc_offer_type"></p>
-                  </div>
-
-                  <div class="mc_carriage">
-                    <h5>Carrozza</h5>
-                    <p class="mc_carriage_number"></p>
-                  </div>
-
-                  <div class="mc_cp_code">
-                    <h5>Codice CP</h5>
-                    <p class="mc_cp_code_number"></p>
-                  </div>
-
-                  <div class="mc_ticket">
-                    <h5>Costo biglietto</h5>
-                    <p class="mc_ticket_price"></p>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>

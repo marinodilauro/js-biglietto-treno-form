@@ -40,17 +40,6 @@ const submitButtonElement = document.getElementById("submitBtn");
 
 submitButtonElement.addEventListener("click", showTicketDetails);
 
-// Reset input field on "Annulla" button click
-
-const cancelButtonElement = document.getElementById("cancelBtn");
-
-cancelButtonElement.addEventListener("click", function () {
-
-  // Reset input fields value
-  resetInputFields()
-
-});
-
 
 // Reset input field and re-run app on "Ripeti" button click
 
@@ -66,6 +55,9 @@ repeatButtonElement.addEventListener("click", function () {
 
   // Cancel all ticket values from the screen
   cancelAllTicketValues();
+
+  // Disable "Ripeti" button
+  disableButton()
 
 });
 
@@ -119,6 +111,9 @@ function showTicketDetails() {
   // Print ticket price on screen
   priceOutput.innerHTML = `${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
 
+  // Enable "Ripeti" button
+  enableButton()
+
 }
 
 // Function to show ticket card on screen
@@ -137,6 +132,24 @@ function hideTicketCard() {
   let ticketCardElement = document.querySelector(".mc_ticket_output");
 
   ticketCardElement.classList.add("d-none");
+}
+
+// Function enable buttons
+
+function enableButton() {
+
+  repeatButtonElement.removeAttribute("disabled");
+  repeatButtonElement.classList.add("mc_btn_bg")
+  repeatButtonElement.classList.remove("btn-secondary")
+}
+
+// Function disable buttons
+
+function disableButton() {
+
+  repeatButtonElement.setAttribute("disabled", "true");
+  repeatButtonElement.classList.add("btn-secondary")
+  repeatButtonElement.classList.remove("mc_btn_bg")
 }
 
 // Function to reset input fields value

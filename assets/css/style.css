@@ -41,7 +41,7 @@ body {
 .mc_app {
   width: 90%;
   max-width: 1600px;
-  max-height: 85vh;
+  height: 90h;
   background-color: var(--tpc-primary_light);
 
   .mc_user_inputs {
