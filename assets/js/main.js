@@ -52,5 +52,7 @@ submitButtonElement.addEventListener("click", function () {
     ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorDiscount);
   }
 
-  alert(`Il biglietto costerà ${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`);
+  let priceOutput = document.getElementById("price");
+
+  priceOutput.innerHTML = `Il biglietto costerà ${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
 });
