@@ -6,7 +6,9 @@
 }
 
 :root {
-  --tpc-primary: rgb(230, 230, 230);
+  --tpc-primary_darkest: rgb(13, 17, 23);
+  --tpc-primary_dark: rgb(22, 27, 34);
+  --tpc-primary_light: rgb(230, 230, 230);
   --tpc-secondary: rgb(196, 18, 40);
   --tpc-font_dark: rgb(48, 48, 48);
   --tpc-font_light: rgb(255, 255, 255);
@@ -18,6 +20,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--tpc-primary_dark);
+  height: 100vh;
 }
 
 /* #endregion ||||| COMMON RULES ||||| */
@@ -25,10 +29,9 @@ body {
 /* #region ||||| HEADER ||||| */
 
 #header {
-  background-color: var(--tpc-primary);
-  color: var(--tpc-font_dark);
+  background-color: var(--tpc-primary_darkest);
+  color: var(--tpc-font_light);
   height: 80px;
-
 }
 
 /* #endregion ||||| HEADER ||||| */
@@ -36,10 +39,10 @@ body {
 /* #region ||||| APP ||||| */
 
 .mc_app {
-  width: 80%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1600px;
   max-height: 85vh;
-  background-color: var(--tpc-primary);
+  background-color: var(--tpc-primary_light);
 
   .mc_user_inputs {
 
