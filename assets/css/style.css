@@ -1,0 +1,39 @@
+/* #region ||||| UTILITIES RULES ||||| */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --tpc-primary: rgb(230, 230, 230);
+  --tpc-secondary: rgb(196, 18, 40);
+  --tpc-font_dark: rgb(48, 48, 48);
+  --tpc-font_light: rgb(255, 255, 255);
+}
+
+/* #endregion ||||| UTILITIES RULES ||||| */
+
+/* #region ||||| COMMON RULES ||||| */
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* #endregion ||||| COMMON RULES ||||| */
+
+/* #region ||||| HEADER ||||| */
+
+#header {
+  background-color: var(--tpc-primary);
+  color: var(--tpc-font_dark);
+  height: 80px;
+
+}
+
+/* #endregion ||||| HEADER ||||| */
+
+/* #region ||||| APP ||||| */
+
+
+/* #endregion ||||| APP ||||| */
