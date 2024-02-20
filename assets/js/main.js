@@ -2,16 +2,13 @@
 // Assegno a queste due variabili dei valori tramite input utente
 
 const inputNameElement = document.getElementById("inputName");
-const userName = inputNameElement.value;
-console.log(userName);
+let userName = inputNameElement.value;
 
 const inputAgeElement = document.getElementById("inputAge");
-const userAge = inputAgeElement.value;
-console.log(userAge);
+let userAge = inputAgeElement.value;
 
 const inputDistanceElement = document.getElementById("inputDistance");
-const travelDistance = inputDistanceElement.value;
-console.log(travelDistance);
+let travelDistance = inputDistanceElement.value;
 
 // Creo una costante per il prezzo al km del biglietto (0.21€)
 
@@ -28,10 +25,32 @@ console.log(ticketFinalPrice);
 const minorDiscount = 0.2;
 const seniorDiscount = 0.4;
 
-// Verifico l'età dell'utente per applicare lo sconto
+// Stampo il prezzo del biglietto
 
-if (userAge < 18) {
-  ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorsDiscount);
-} else if (userAge >= 65) {
-  ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorsDiscount);
-}
+const submitButtonElement = document.getElementById("submitBtn");
+
+submitButtonElement.addEventListener("click", function () {
+
+  userName = inputNameElement.value;
+  console.log(userName);
+
+  userAge = inputAgeElement.value;
+  console.log(userAge);
+
+  travelDistance = inputDistanceElement.value;
+  console.log(travelDistance);
+
+  // Creo una varaibile e le assegno il prezzo del biglietto dell'utente (sarà 0.21 moltiplicato il valore della variabile "km da percorrere")
+
+  let ticketFinalPrice = ticketBasePrice * travelDistance;
+
+  // Verifico l'età dell'utente per applicare lo sconto
+
+  if (userAge < 18) {
+    ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorDiscount);
+  } else if (userAge >= 65) {
+    ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorDiscount);
+  }
+
+  console.log(ticketFinalPrice);
+});
