@@ -62,6 +62,34 @@ submitButtonElement.addEventListener("click", function () {
 });
 
 
+// Resetto i campi e riavvio l'app al click del bottone "Ripeti"
+
+const cancelButtonElement = document.getElementById("cancelBtn");
+
+cancelButtonElement.addEventListener("click", function () {
+
+  // Resetto il valore degli inputs dell'utente
+
+  inputAgeElement.value = "";
+  console.log(userName);
+
+  inputNameElement.value = "";
+  console.log(userAge);
+
+  inputDistanceElement.value = "";
+  console.log(travelDistance);
+
+  // Resetto il valore del prezzo del biglietto
+
+  let ticketFinalPrice = null;
+
+  // Cancello il prezzo del biglieto dalla pagina
+
+  let priceOutput = document.getElementById("price");
+
+  priceOutput.innerHTML = null;
+});
+
 
 // Resetto i campi e riavvio l'app al click del bottone "Ripeti"
 
