@@ -35,5 +35,19 @@ body {
 
 /* #region ||||| APP ||||| */
 
+.mc_app {
+  width: 80%;
+  max-width: 1200px;
+  max-height: 85vh;
+  background-color: var(--tpc-primary);
+
+  .mc_user_inputs {
+
+    .mc_btn_bg {
+      background-color: var(--tpc-secondary);
+      color: var(--tpc-font_light);
+    }
+  }
+}
 
 /* #endregion ||||| APP ||||| */

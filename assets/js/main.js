@@ -4,8 +4,9 @@
 const inputNameElement = document.getElementById("inputName");
 let userName = inputNameElement.value;
 
-const inputAgeElement = document.getElementById("inputAge");
+const inputAgeElement = document.getElementById("inputAgeRange");
 let userAge = inputAgeElement.value;
+console.log(userAge);
 
 const inputDistanceElement = document.getElementById("inputDistance");
 let travelDistance = inputDistanceElement.value;
@@ -46,9 +47,9 @@ submitButtonElement.addEventListener("click", function () {
 
   // Verifico l'età dell'utente per applicare lo sconto
 
-  if (userAge < 18) {
+  if (userAge == "1") {
     ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorDiscount);
-  } else if (userAge >= 65) {
+  } else if (userAge == "3") {
     ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorDiscount);
   }
 

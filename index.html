@@ -31,24 +31,28 @@
 
   <!-- App -->
 
-  <div class="mc_app">
+  <div class="mc_app border border-black rounded m-auto my-4 p-4">
 
     <div class="mc_user_inputs">
       <div class="container">
-        <div class="row d-flex my-5">
+        <div class="row d-flex justify-content-center mb-4">
 
           <div class="col-4">
-            <label for="inputName" class="form-label">Inserisca nome e cognome del passeggero</label>
+            <label for="inputName" class="form-label">Nome e cognome del passeggero</label>
             <input type="text" class="form-control w-75" id="inputName" />
           </div>
 
           <div class="col-4">
-            <label for="inputAge" class="form-label">Inserisca l'età del passeggero</label>
-            <input type="number" class="form-control w-75" id="inputAge" />
+            <label for="ageRange" class="form-label">Fascia d'età del passeggero</label>
+            <select class="form-select" aria-label="ageRange" id="inputAgeRange">
+              <option value="1">Minorenne</option>
+              <option value="2">Maggiorenne (tra 18 e 64 anni)</option>
+              <option value="3">Anziano (oltre i 64 anni)</option>
+            </select>
           </div>
 
           <div class="col-4">
-            <label for="inputDistance" class="form-label">Inserisca la distanza da percorrere (in km)</label>
+            <label for="inputDistance" class="form-label">Distanza da percorrere (in km)</label>
             <input type="number" class="form-control w-75" id="inputDistance" />
           </div>
 
@@ -56,11 +60,11 @@
 
         <div class="d-flex justify-content-center gap-5">
 
-          <button type="button" class="btn btn-primary" id="submitBtn">Scopri il prezzo</button>
+          <button type="button" class="btn mc_btn_bg" id="submitBtn">Scopri il prezzo</button>
 
-          <button type="button" class="btn btn-primary">Annulla</button>
+          <button type="button" class="btn mc_btn_bg">Annulla</button>
 
-          <button type="button" class="btn btn-primary">Ripeti</button>
+          <button type="button" class="btn mc_btn_bg">Ripeti</button>
 
         </div>
 
