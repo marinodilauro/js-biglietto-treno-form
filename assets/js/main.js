@@ -78,41 +78,47 @@ function showTicketDetails() {
   travelDistance = inputDistanceElement.value;
   console.log(travelDistance);
 
-  // Create a variable and assing ticket price (0.21 times travelDistance value)
-  let ticketFinalPrice = ticketBasePrice * travelDistance;
+  // Do this only if input field are not empty
+  if (!userName || !userAge || !travelDistance) {
+    alert("❗Tutti i campi sono obbligatori❗");
 
-  // Create a variable for ticket offer type
-  let offerType = "Biglietto tariffa standard"
+  } else {
+    // Create a variable and assing ticket price (0.21 times travelDistance value)
+    let ticketFinalPrice = ticketBasePrice * travelDistance;
 
-  // Verify user age to apply discount
-  if (userAge == "1") {
-    ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorDiscount);
-    offerType = "Biglietto con sconto minorenni"
-  } else if (userAge == "3") {
-    ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorDiscount);
-    offerType = "Biglietto con sconto over 65"
+    // Create a variable for ticket offer type
+    let offerType = "Biglietto tariffa standard"
+
+    // Verify user age to apply discount
+    if (userAge == "1") {
+      ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * minorDiscount);
+      offerType = "Biglietto con sconto minorenni"
+    } else if (userAge == "3") {
+      ticketFinalPrice = ticketFinalPrice - (ticketFinalPrice * seniorDiscount);
+      offerType = "Biglietto con sconto over 65"
+    }
+
+    // Show ticket card on screen
+    showTicketCard();
+
+    // Print user name on screen
+    nameOutput.innerHTML = userName.toLocaleString("it-IT");
+
+    // Print carriage number on screen
+    carriageOutput.innerHTML = (Math.floor(Math.random() * 21) + 1);
+
+    // Print ticket offer type on screen
+    offerOutput.innerHTML = offerType;
+
+    // Print CP code on screen
+    cpCodeOutput.innerHTML = (Math.floor(Math.random() * 10001) + 1);
+
+    // Print ticket price on screen
+    priceOutput.innerHTML = `${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
+
+    // Enable "Ripeti" button
+    enableButton()
   }
-
-  // Show ticket card on screen
-  showTicketCard();
-
-  // Print user name on screen
-  nameOutput.innerHTML = userName.toLocaleString("it-IT");
-
-  // Print carriage number on screen
-  carriageOutput.innerHTML = (Math.floor(Math.random() * 21) + 1);
-
-  // Print ticket offer type on screen
-  offerOutput.innerHTML = offerType;
-
-  // Print CP code on screen
-  cpCodeOutput.innerHTML = (Math.floor(Math.random() * 10001) + 1);
-
-  // Print ticket price on screen
-  priceOutput.innerHTML = `${ticketFinalPrice.toLocaleString("it-IT", { style: "currency", currency: "EUR" })}`;
-
-  // Enable "Ripeti" button
-  enableButton()
 
 }
 
