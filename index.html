@@ -35,16 +35,17 @@
 
     <div class="mc_user_inputs">
       <div class="container">
-        <div class="row d-flex justify-content-center mb-4">
+
+        <div class="row g-3 mb-4">
 
           <div class="col-4">
             <label for="inputName" class="form-label">Nome e cognome del passeggero</label>
-            <input type="text" class="form-control w-75" id="inputName" />
+            <input type="text" class="form-control w-75" id="inputName" required="" />
           </div>
 
           <div class="col-4">
-            <label for="ageRange" class="form-label">Fascia d'età del passeggero</label>
-            <select class="form-select" aria-label="ageRange" id="inputAgeRange">
+            <label for="inputAgeRange" class="form-label">Fascia d'età del passeggero</label>
+            <select class="form-select w-75" aria-label="ageRange" id="inputAgeRange">
               <option value="1">Minorenne</option>
               <option value="2">Maggiorenne (tra 18 e 64 anni)</option>
               <option value="3">Anziano (oltre i 64 anni)</option>
@@ -53,21 +54,20 @@
 
           <div class="col-4">
             <label for="inputDistance" class="form-label">Distanza da percorrere (in km)</label>
-            <input type="number" class="form-control w-75" id="inputDistance" />
+            <input type="number" class="form-control w-75" id="inputDistance" required="" />
+          </div>
+
+          <div class="mc_btn_group d-flex justify-content-center gap-5">
+
+            <button type="button" class="btn mc_btn_bg" id="submitBtn">Scopri il prezzo</button>
+
+            <button type="button" class="btn mc_btn_bg">Annulla</button>
+
+            <button type="button" class="btn mc_btn_bg" id="repeatBtn">Ripeti</button>
+
           </div>
 
         </div>
-
-        <div class="d-flex justify-content-center gap-5">
-
-          <button type="button" class="btn mc_btn_bg" id="submitBtn">Scopri il prezzo</button>
-
-          <button type="button" class="btn mc_btn_bg">Annulla</button>
-
-          <button type="button" class="btn mc_btn_bg">Ripeti</button>
-
-        </div>
-
       </div>
     </div>
 
